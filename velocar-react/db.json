@@ -1,0 +1,29 @@
+{
+    "cars": [
+      {
+        "id": 1,
+        "title": "Toyota Corolla",
+        "year": 2018,
+        "km": 50000,
+        "hp": 132,
+        "color": "White",
+        "gear": "Automatic",
+        "fuelType": "Petrol",
+        "price": "$15,000",
+        "imageUrl": "/assets/images/toyota_corolla.jpg"
+      },
+      {
+        "id": 2,
+        "title": "Honda Civic",
+        "year": 2020,
+        "km": 30000,
+        "hp": 158,
+        "color": "Black",
+        "gear": "Manual",
+        "fuelType": "Petrol",
+        "price": "$18,000",
+        "imageUrl": "/assets/images/honda_civic.jpg"
+      }
+    ]
+  }
+  
