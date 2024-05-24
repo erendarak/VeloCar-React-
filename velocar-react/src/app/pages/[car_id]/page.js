@@ -1,6 +1,7 @@
 'use client'
 import Layout from '../../components/Layout';
 import { useState, useEffect } from "react";
+import Link from 'next/link';
 
 export default function CarPage({ params }) {
   const [car, setCar] = useState({});
@@ -58,7 +59,7 @@ export default function CarPage({ params }) {
             <p id="price">{car.price}</p>
           </div>
           <button className="buy-button">
-            <a href="PaymentScreen.html">Buy Now</a>
+          <Link href="/pages/payment">Buy Now</Link>
           </button>
         </div>
       </div>

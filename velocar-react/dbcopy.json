@@ -50,5 +50,7 @@
         "title": "Porsche 911 GT3 RS", "year": "2018", "km": "10,265", "hp": "525", "color": "Gray", "gear": "Automatic", "fuelType": "Gasoline", "price": "$120,000",
         "imageUrl": "https://i.ibb.co/qjzXMWr/gt3rs.jpg"
       }
-    ]
+    ],
+      "users":[],
+      "payments":[]
     }

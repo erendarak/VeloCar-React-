@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
           <div className="SignUpButton" id="buttons">
             <p className="UpperBarElements">
               <u>
-                <Link href="/signup" legacyBehavior>
+                <Link href="/pages/signup" legacyBehavior>
                   <a>Sign Up</a>
                 </Link>
               </u>
@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
           <div className="FAQButton" id="buttons">
             <p className="UpperBarElements">
               <u>
-                <Link href="/faq" legacyBehavior>
+                <Link href="pages/faq" legacyBehavior>
                   <a>FAQ</a>
                 </Link>
               </u>
