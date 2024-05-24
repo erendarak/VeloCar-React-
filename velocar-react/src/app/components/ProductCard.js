@@ -14,7 +14,7 @@ import {
 function ProductCard({ product }) {
   return (
     <Card>
-      <CardImg top width="100%" src={product.imageURL} alt={product.title} />
+      <CardImg top width="100%" src={product.imageUrl} alt={product.title} />
       <CardBody>
         <CardTitle tag="h5">{product.title}</CardTitle>
         <CardSubtitle tag="h6" className="mb-2 text-muted">

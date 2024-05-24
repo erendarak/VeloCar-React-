@@ -35,12 +35,10 @@ export default function Home() {
   return (
     <main>
       <Layout>
-        <h1>Available Cars</h1>
         <ProductList></ProductList>
-        <ApplicationContext.Provider value={{ data: "Data from context!" }}>
-          <ProductCount productCount={carList.length} />
-          <Catalog tableHeader={title} carList={carList}></Catalog>
-        </ApplicationContext.Provider>
+        <ApplicationContext.Provider
+          value={{ data: "Data from context!" }}
+        ></ApplicationContext.Provider>
       </Layout>
     </main>
   );
