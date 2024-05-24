@@ -3,4 +3,11 @@
     justify-content: center;
     align-items: center;
     min-height: 50vh;
+    background-color: rgb(1, 131, 252);
+    border-radius: 10px;
+  }
+  .login-form{
+    background-color: rgb(196, 255, 244);
+    padding: 20px;
+    border-radius: 10px;
   }

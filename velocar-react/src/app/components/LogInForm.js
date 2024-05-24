@@ -31,7 +31,7 @@ function LoginForm() {
     <Container className="login-container">
       <Row>
         <Col md={{ size: 14, offset: 0 }}>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="login-form">
             <FormGroup>
               <Label for="email">Email</Label>
               <Input
