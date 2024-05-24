@@ -1,7 +1,7 @@
 // components/Layout.js
-'use client'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Head from 'next/head';
+"use client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Head from "next/head";
 
 const Layout = ({ children }) => {
   return (
@@ -10,12 +10,10 @@ const Layout = ({ children }) => {
         <title>VeloCar</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/assets/styles/carView.css" /> {/* Add the link to CSS file */}
+        <link rel="stylesheet" href="/assets/styles/carView.css" />
       </Head>
       <html>
-        <body>
-          {children}
-        </body>
+        <body>{children}</body>
       </html>
     </>
   );

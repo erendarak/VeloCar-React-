@@ -7,6 +7,7 @@ import "./public/assets/styles/carView.css";
 import { ApplicationContext } from "./components/ApplicationContext";
 import ProductCount from "./components/ProductCount";
 import ProductList from "./components/ProductList";
+import LoginForm from "./components/LogInForm";
 
 export default function Home() {
   const [carList, setCarList] = useState([]);

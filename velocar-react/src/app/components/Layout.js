@@ -1,9 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
-import '../public/assets/styles/carView.css';
-
+import React from "react";
+import Link from "next/link";
+import "../public/assets/styles/carView.css";
 
 const Layout = ({ children }) => {
   return (
@@ -20,7 +19,7 @@ const Layout = ({ children }) => {
         <div className="SignInButton" id="buttons">
           <p className="UpperBarElements">
             <u>
-              <Link href="/login" legacyBehavior>
+              <Link href="../pages/Login" legacyBehavior>
                 <a>Sign In</a>
               </Link>
             </u>
@@ -47,9 +46,7 @@ const Layout = ({ children }) => {
           </p>
         </div>
       </div>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <footer className="footer">
         <p>&copy; 2023 VeloCar. All rights reserved.</p>
       </footer>
