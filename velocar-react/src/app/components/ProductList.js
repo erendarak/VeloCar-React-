@@ -19,7 +19,6 @@ function ProductList() {
       image:
         "https://ucbbe1b6a16dda103e5583fcc7bb.dl.dropboxusercontent.com/cd/0/inline/CThuvZxf3XyAKi7W5LepspLI786dTPsmP8qXWfAkBlapUux1uJoBvkMKfJ9HDRKWkURT3fB88dizxXLVOE9t6QFBV3NgZpdZroUE07hQzyMsIq4WgjxzGw7QnbOunCfr-hDF63zmPGbB3D5yln31dH-8/file#",
     },
-    // ... more product objects
   ];
 
   return (
