@@ -7,6 +7,7 @@ import "../public/assets/styles/carView.css";
 const Layout = ({ children }) => {
   return (
     <>
+    <div className="wrapper">
       <div className="UpperBlueBar">
         <div className="UpperLogo">
           <h1 className="VeloCarLogo">
@@ -50,6 +51,7 @@ const Layout = ({ children }) => {
       <footer className="footer">
         <p>&copy; 2023 VeloCar. All rights reserved.</p>
       </footer>
+      </div>
     </>
   );
 };

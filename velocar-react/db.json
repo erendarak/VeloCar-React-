@@ -1,29 +1,54 @@
 {
-    "cars": [
-      {
-        "id": 1,
-        "title": "Toyota Corolla",
-        "year": 2018,
-        "km": 50000,
-        "hp": 132,
-        "color": "White",
-        "gear": "Automatic",
-        "fuelType": "Petrol",
-        "price": "$15,000",
-        "imageUrl": "/assets/images/toyota_corolla.jpg"
-      },
-      {
-        "id": 2,
-        "title": "Honda Civic",
-        "year": 2020,
-        "km": 30000,
-        "hp": 158,
-        "color": "Black",
-        "gear": "Manual",
-        "fuelType": "Petrol",
-        "price": "$18,000",
-        "imageUrl": "/assets/images/honda_civic.jpg"
-      }
-    ]
+"cars": [
+  {
+    "id": 1,
+"title": "Volkswagen Passat", "year": "2013", "km": "225,000", "hp": "105", "color": "White", "gear": "Automatic", "fuelType": "Diesel", "price": "$25,000", 
+    "imageUrl": "https://i.ibb.co/RpGG49k/passat.jpg"
+  },
+  {
+    "id": 2,
+"title": "Renault Clio", "year": "2019", "km": "129,000", "hp": "75", "color": "White", "gear": "Manual", "fuelType": "Diesel", "price": "$10,000",
+    "imageUrl": "https://i.ibb.co/XjcNXDv/clio.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Toyota Yaris", "year": "2019", "km": "67,765", "hp": "125", "color": "Red", "gear": "Automatic", "fuelType": "Gasoline", "price": "$15,000", 
+    "imageUrl": "https://i.ibb.co/qxCF9ch/yaris.jpg"
+  },
+  {
+    "id": 4,
+    "title": "BMW 5.25", "year": "2016", "km": "225,000", "hp": "218", "color": "Black", "gear": "Automatic", "fuelType": "Diesel", "price": "$40,000",
+    "imageUrl": "https://i.ibb.co/kh9S6KX/5-25.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Mercedes AMG GT", "year": "2016", "km": "38,875", "hp": "510", "color": "Yellow", "gear": "Automatic", "fuelType": "Gaspline", "price": "$80,000", 
+    "imageUrl": "https://i.ibb.co/ZKBKgND/mercedesamggt.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Aston Martin Vanquish", "year": "2015", "km": "13,210", "hp": "600", "color": "Blue", "gear": "Automatic", "fuelType": "Gasoline", "price": "$85,000",
+    "imageUrl": "https://i.ibb.co/5YmSbdM/vanquish.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Lamborghini Urus", "year": "2023", "km": "6001", "hp": "601", "color": "Green", "gear": "Automatic", "fuelType": "Gasoline", "price": "$100,000", 
+    "imageUrl": "https://i.ibb.co/WK7B4f8/urus.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Alfa Romeo Giulietta", "year": "2018", "km": "83,000", "hp": "120", "color": "Red", "gear": "Automatic", "fuelType": "Diesel", "price": "$25,000",
+    "imageUrl": "https://i.ibb.co/NYqFnzZ/giulietta.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Mercedes G63", "year": "2018", "km": "40,000", "hp": "330", "color": "Black", "gear": "Automatic", "fuelType": "Gasoline", "price": "$60,000", 
+    "imageUrl": "https://i.ibb.co/NS21bgS/g63.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Porsche 911 GT3 RS", "year": "2018", "km": "10,265", "hp": "525", "color": "Gray", "gear": "Automatic", "fuelType": "Gasoline", "price": "$120,000",
+    "imageUrl": "https://i.ibb.co/qjzXMWr/gt3rs.jpg"
   }
-  
+]
+}
