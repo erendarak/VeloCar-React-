@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import Link from "next/link";
 import "../public/assets/styles/carView.css";
@@ -20,7 +19,7 @@ const Layout = ({ children }) => {
           <div className="SignInButton" id="buttons">
             <p className="UpperBarElements">
               <u>
-                <Link href="../pages/Login" legacyBehavior>
+                <Link href="/pages/Login" legacyBehavior>
                   <a>Sign In</a>
                 </Link>
               </u>
@@ -40,7 +39,7 @@ const Layout = ({ children }) => {
           <div className="FAQButton" id="buttons">
             <p className="UpperBarElements">
               <u>
-                <Link href="pages/faq" legacyBehavior>
+                <Link href="/pages/FAQ" legacyBehavior>
                   <a>FAQ</a>
                 </Link>
               </u>
