@@ -49,8 +49,10 @@ function LoginForm() {
     if (email && password) {
       alert("successfully login");
       router.push("/");
+    } else if (email) {
+      alert("wrong password");
     } else {
-      alert("there is no user");
+      alert("there is no such user");
     }
 
     console.log(formData);
