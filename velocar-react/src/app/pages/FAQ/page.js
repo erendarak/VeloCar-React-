@@ -3,6 +3,14 @@ import '../../public/assets/styles/carView.css';
 import { useState } from 'react';
 import Layout from '../../components/Layout';
 
+const containsNumbers = (str) => /\d/.test(str);
+
+const validateIfInvalidName = (name) => {
+  if (name.trim() === "" || containsNumbers(name)) {
+    return false;
+  }
+  return true;
+};
 
 export default function FAQPage() {
   const [subscriber, setSubscriber] = useState({ name: '', email: '' });
@@ -21,13 +29,20 @@ export default function FAQPage() {
     setError(null);
     setSuccessMessage(null);
 
+    if (!validateIfInvalidName(subscriber.name)) {
+      setError('Please enter a valid name without numbers.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:3001/subscribers?email=' + subscriber.email);
       const data = await response.json();
 
       if (data.length > 0) {
-        setError('That email already exists.');
-        setIsSubmitting(false);
+        const existingSubscriber = data[0];
+        await updateSubscriber(existingSubscriber.id, { ...existingSubscriber, name: subscriber.name });
+        setSuccessMessage('Name updated successfully.');
       } else {
         const postResponse = await fetch('http://localhost:3001/subscribers', {
           method: 'POST',
@@ -42,13 +57,29 @@ export default function FAQPage() {
         } else {
           setError('An error occurred while saving the subscriber.');
         }
-        setIsSubmitting(false);
       }
+      setIsSubmitting(false);
     } catch (error) {
       setError('An error occurred. Please try again.');
       console.error('Error:', error);
       setIsSubmitting(false);
     }
+  };
+
+  const updateSubscriber = async (id, updatedData) => {
+    const response = await fetch(`http://localhost:3001/subscribers/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to update subscriber');
+    }
+
+    return response.json();
   };
 
   return (
