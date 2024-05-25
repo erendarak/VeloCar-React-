@@ -1,9 +1,12 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import '../../public/assets/styles/payment.css';
 import Layout from '../../components/Layout';
 
 const Payment = () => {
+  const router = useRouter();
+
   const [paymentInfo, setPaymentInfo] = useState({
     cardName: '',
     cardNumber: '',
@@ -33,7 +36,7 @@ const Payment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) {
-        resetForm();
+      resetForm();
       return;
     }
 
@@ -47,8 +50,9 @@ const Payment = () => {
       });
 
       if (response.ok) {
-        alert('Payment information stored successfully!');
+        alert('Payment completed succesfully!');
         resetForm();
+        router.push('/'); 
       } else {
         const errorData = await response.json();
         console.error('Error response:', errorData);
@@ -65,6 +69,10 @@ const Payment = () => {
 
     if (cardName === '' || cardNumber === '' || cvv === '' || expDate === '') {
       alert("Please fill in all fields.");
+      return false;
+    }
+
+    if (!validateIfInvalidName(cardName)) {
       return false;
     }
 
@@ -86,6 +94,18 @@ const Payment = () => {
       return false;
     }
 
+    return true;
+  };
+
+  const containsNumbers = (value) => {
+    return /\d/.test(value);
+  };
+
+  const validateIfInvalidName = (name) => {
+    if (name.trim() === '' || containsNumbers(name)) {
+      alert('Please enter a valid name without numbers.');
+      return false;
+    }
     return true;
   };
 

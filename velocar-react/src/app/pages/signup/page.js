@@ -1,9 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import '../../public/assets/styles/signUp.css';
 import Layout from '../../components/Layout';
 
 const SignUp = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -13,10 +16,20 @@ const SignUp = () => {
   });
 
   const [storedData, setStoredData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('storedData')) || [];
-    setStoredData(data);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/users');
+        const data = await response.json();
+        setStoredData(data);
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleChange = (e) => {
@@ -114,10 +127,13 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validate()) {
       resetForm();
       return;
     }
+
+    setIsLoading(true);
 
     const newUser = {
       name: formData.name,
@@ -141,6 +157,7 @@ const SignUp = () => {
         setStoredData(updatedStoredData);
         localStorage.setItem('storedData', JSON.stringify(updatedStoredData));
         resetForm();
+        router.push('/pages/Login'); 
       } else {
         const errorData = await response.json();
         console.error('Error response:', errorData);
@@ -149,6 +166,8 @@ const SignUp = () => {
     } catch (error) {
       console.error('Fetch error:', error);
       alert('Sign Up Failed');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -223,7 +242,9 @@ const SignUp = () => {
             required
           />
 
-          <button className="SignUpButton2" type="submit" id="SignUpButton2">Sign Up</button>
+          <button className="SignUpButton2" type="submit" id="SignUpButton2" disabled={isLoading}>
+            {isLoading ? 'Signing Up...' : 'Sign Up'}
+          </button>
         </form>
       </div>
     </Layout>
