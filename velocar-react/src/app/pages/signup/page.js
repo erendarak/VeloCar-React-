@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect } from 'react';
 import '../../public/assets/styles/signUp.css';
 import Layout from '../../components/Layout';
@@ -45,6 +45,7 @@ const SignUp = () => {
     }
     return true;
   };
+
   const containsNumbers = (value) => {
     return /\d/.test(value);
   };
@@ -62,7 +63,7 @@ const SignUp = () => {
     }
     return true;
   };
- 
+
   const validateIfInvalidName = () => {
     if (
       (formData.name.trim() === '' || containsNumbers(formData.name)) ||
@@ -73,7 +74,6 @@ const SignUp = () => {
     }
     return true;
   };
-  
 
   const validatePasswordLength = () => {
     if (formData.password.length <= 5 || formData.password.length > 16) {
@@ -101,6 +101,7 @@ const SignUp = () => {
       return true;
     }
   };
+
   const resetForm = () => {
     setFormData({
       name: '',
@@ -119,11 +120,11 @@ const SignUp = () => {
     }
 
     const newUser = {
-  name: formData.name,
-  surname: formData.surname,
-  email: formData.email,
-  password: formData.password
-};
+      name: formData.name,
+      surname: formData.surname,
+      email: formData.email,
+      password: formData.password
+    };
 
     try {
       const response = await fetch('http://localhost:3001/users', {
@@ -139,13 +140,7 @@ const SignUp = () => {
         const updatedStoredData = [...storedData, newUser];
         setStoredData(updatedStoredData);
         localStorage.setItem('storedData', JSON.stringify(updatedStoredData));
-        setFormData({
-          name: '',
-          surname: '',
-          email: '',
-          password: '',
-          rePassword: ''
-        });
+        resetForm();
       } else {
         const errorData = await response.json();
         console.error('Error response:', errorData);
@@ -159,79 +154,79 @@ const SignUp = () => {
 
   return (
     <Layout>
-    <div className="SignUpBar" name="SUPBar">
-      <form id="signupForm" onSubmit={handleSubmit}>
-        <h1 className="SignUpText">Sign Up</h1>
+      <div className="SignUpBar" name="SUPBar">
+        <form id="signupForm" onSubmit={handleSubmit}>
+          <h1 className="SignUpText">Sign Up</h1>
 
-        <div className="NameText" id="NameText">
-          <p><b>Name:</b></p>
-        </div>
-        <input
-          className="NameInput"
-          type="text"
-          name="name"
-          id="NameInput"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+          <div className="NameText" id="NameText">
+            <p><b>Name:</b></p>
+          </div>
+          <input
+            className="NameInput"
+            type="text"
+            name="name"
+            id="NameInput"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
 
-        <div className="SurnameText">
-          <p><b>Surname:</b></p>
-        </div>
-        <input
-          className="SurnameInput"
-          type="text"
-          name="surname"
-          id="SurnameInput"
-          value={formData.surname}
-          onChange={handleChange}
-          required
-        />
+          <div className="SurnameText">
+            <p><b>Surname:</b></p>
+          </div>
+          <input
+            className="SurnameInput"
+            type="text"
+            name="surname"
+            id="SurnameInput"
+            value={formData.surname}
+            onChange={handleChange}
+            required
+          />
 
-        <div className="emailText">
-          <p><b>Email:</b></p>
-        </div>
-        <input
-          className="MailInput"
-          type="email"
-          name="email"
-          id="MailInput"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+          <div className="emailText">
+            <p><b>Email:</b></p>
+          </div>
+          <input
+            className="MailInput"
+            type="email"
+            name="email"
+            id="MailInput"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
 
-        <div className="PasswordText">
-          <p><b>Password:</b></p>
-        </div>
-        <input
-          className="PasswordInput"
-          type="password"
-          name="password"
-          id="PasswordInput"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
+          <div className="PasswordText">
+            <p><b>Password:</b></p>
+          </div>
+          <input
+            className="PasswordInput"
+            type="password"
+            name="password"
+            id="PasswordInput"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
 
-        <div className="rePasswordText">
-          <p><b>Re-Enter Password:</b></p>
-        </div>
-        <input
-          className="rePasswordInput"
-          type="password"
-          name="rePassword"
-          id="rePasswordInput"
-          value={formData.rePassword}
-          onChange={handleChange}
-          required
-        />
+          <div className="rePasswordText">
+            <p><b>Re-Enter Password:</b></p>
+          </div>
+          <input
+            className="rePasswordInput"
+            type="password"
+            name="rePassword"
+            id="rePasswordInput"
+            value={formData.rePassword}
+            onChange={handleChange}
+            required
+          />
 
-        <button className="SignUpButton2" type="submit" id="SignUpButton2">Sign Up</button>
-      </form>
-    </div>
-  </Layout>
+          <button className="SignUpButton2" type="submit" id="SignUpButton2">Sign Up</button>
+        </form>
+      </div>
+    </Layout>
   );
 };
 

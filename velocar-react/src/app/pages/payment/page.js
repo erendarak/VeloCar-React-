@@ -12,34 +12,24 @@ const Payment = () => {
     paymentMethod: 'Credit Card'
   });
 
-  useEffect(() => {
-    const cNumInput = document.getElementById("CNumInput");
-    const cvvInput = document.getElementById("CVVInput");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPaymentInfo({
+      ...paymentInfo,
+      [name]: value
+    });
+  };
 
-    cNumInput.addEventListener("input", handleCardNumberInput);
-    cvvInput.addEventListener("input", handleCvvInput);
-
-    return () => {
-      cNumInput.removeEventListener("input", handleCardNumberInput);
-      cvvInput.removeEventListener("input", handleCvvInput);
-    };
-  }, []);
-
-  const handleCardNumberInput = (event) => {
-    const { value } = event.target;
-    const sanitizedValue = value.replace(/\D/g, '').slice(0, 16);
-
+  const handleCardNumberInput = (e) => {
+    const sanitizedValue = e.target.value.replace(/\D/g, '').slice(0, 16);
     setPaymentInfo((prevState) => ({ ...prevState, cardNumber: sanitizedValue }));
   };
 
-  const handleCvvInput = (event) => {
-    const { value } = event.target;
-    const sanitizedValue = value.replace(/\D/g, '').slice(0, 3);
-
+  const handleCvvInput = (e) => {
+    const sanitizedValue = e.target.value.replace(/\D/g, '').slice(0, 3);
     setPaymentInfo((prevState) => ({ ...prevState, cvv: sanitizedValue }));
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) {
@@ -97,10 +87,6 @@ const Payment = () => {
     }
 
     return true;
-  };
-
-  const handleChange = (e) => {
-    setPaymentInfo({ ...paymentInfo, [e.target.name]: e.target.value });
   };
 
   const resetForm = () => {
