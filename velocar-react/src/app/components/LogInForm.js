@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   Button,
@@ -14,6 +15,21 @@ import {
 import "../public/assets/styles/LoginForm.css";
 
 function LoginForm() {
+  const router = useRouter();
+  const [storedData, setStoredData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/users");
+        const data = await response.json();
+        setStoredData(data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,7 +41,19 @@ function LoginForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData); // Replace with actual login logic
+    let email = storedData.find((item) => item.email === formData.email);
+    let password = storedData.find(
+      (item) => item.password === formData.password
+    );
+
+    if (email && password) {
+      alert("successfully login");
+      router.push("/");
+    } else {
+      alert("there is no user");
+    }
+
+    console.log(formData);
   };
 
   return (

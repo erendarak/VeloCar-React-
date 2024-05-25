@@ -1,18 +1,18 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import '../../public/assets/styles/signUp.css';
-import Layout from '../../components/Layout';
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import "../../public/assets/styles/signUp.css";
+import Layout from "../../components/Layout";
 
 const SignUp = () => {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    email: '',
-    password: '',
-    rePassword: ''
+    name: "",
+    surname: "",
+    email: "",
+    password: "",
+    rePassword: "",
   });
 
   const [storedData, setStoredData] = useState([]);
@@ -21,11 +21,11 @@ const SignUp = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/users');
+        const response = await fetch("http://localhost:3001/users");
         const data = await response.json();
         setStoredData(data);
       } catch (error) {
-        console.error('Fetch error:', error);
+        console.error("Fetch error:", error);
       }
     };
 
@@ -36,7 +36,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -65,13 +65,13 @@ const SignUp = () => {
 
   const validateIfEmpty = () => {
     if (
-      formData.name === '' ||
-      formData.surname === '' ||
-      formData.email === '' ||
-      formData.password === '' ||
-      formData.rePassword === ''
+      formData.name === "" ||
+      formData.surname === "" ||
+      formData.email === "" ||
+      formData.password === "" ||
+      formData.rePassword === ""
     ) {
-      alert('Please fill in all fields.');
+      alert("Please fill in all fields.");
       return false;
     }
     return true;
@@ -79,10 +79,12 @@ const SignUp = () => {
 
   const validateIfInvalidName = () => {
     if (
-      (formData.name.trim() === '' || containsNumbers(formData.name)) ||
-      (formData.surname.trim() === '' || containsNumbers(formData.surname))
+      formData.name.trim() === "" ||
+      containsNumbers(formData.name) ||
+      formData.surname.trim() === "" ||
+      containsNumbers(formData.surname)
     ) {
-      alert('Please enter a valid name and surname without numbers.');
+      alert("Please enter a valid name and surname without numbers.");
       return false;
     }
     return true;
@@ -90,7 +92,7 @@ const SignUp = () => {
 
   const validatePasswordLength = () => {
     if (formData.password.length <= 5 || formData.password.length > 16) {
-      alert('Password must be between 6 and 16 characters long.');
+      alert("Password must be between 6 and 16 characters long.");
       return false;
     }
     return true;
@@ -98,7 +100,7 @@ const SignUp = () => {
 
   const validatePasswordMatch = () => {
     if (formData.password !== formData.rePassword) {
-      alert('Passwords do not match.');
+      alert("Passwords do not match.");
       return false;
     }
     return true;
@@ -108,7 +110,7 @@ const SignUp = () => {
     const existingEmail = storedData.find((item) => item.email === email);
 
     if (existingEmail) {
-      alert('This email already exists. Please use a different email.');
+      alert("This email already exists. Please use a different email.");
       return false;
     } else {
       return true;
@@ -117,11 +119,11 @@ const SignUp = () => {
 
   const resetForm = () => {
     setFormData({
-      name: '',
-      surname: '',
-      email: '',
-      password: '',
-      rePassword: ''
+      name: "",
+      surname: "",
+      email: "",
+      password: "",
+      rePassword: "",
     });
   };
 
@@ -139,33 +141,33 @@ const SignUp = () => {
       name: formData.name,
       surname: formData.surname,
       email: formData.email,
-      password: formData.password
+      password: formData.password,
     };
 
     try {
-      const response = await fetch('http://localhost:3001/users', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3001/users", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(newUser)
+        body: JSON.stringify(newUser),
       });
 
       if (response.ok) {
-        alert('Successfully signed up!');
+        alert("Successfully signed up!");
         const updatedStoredData = [...storedData, newUser];
         setStoredData(updatedStoredData);
-        localStorage.setItem('storedData', JSON.stringify(updatedStoredData));
+        localStorage.setItem("storedData", JSON.stringify(updatedStoredData));
         resetForm();
-        router.push('/pages/Login'); 
+        router.push("/pages/Login");
       } else {
         const errorData = await response.json();
-        console.error('Error response:', errorData);
-        alert('Sign Up Failed');
+        console.error("Error response:", errorData);
+        alert("Sign Up Failed");
       }
     } catch (error) {
-      console.error('Fetch error:', error);
-      alert('Sign Up Failed');
+      console.error("Fetch error:", error);
+      alert("Sign Up Failed");
     } finally {
       setIsLoading(false);
     }
@@ -178,7 +180,9 @@ const SignUp = () => {
           <h1 className="SignUpText">Sign Up</h1>
 
           <div className="NameText" id="NameText">
-            <p><b>Name:</b></p>
+            <p>
+              <b>Name:</b>
+            </p>
           </div>
           <input
             className="NameInput"
@@ -191,7 +195,9 @@ const SignUp = () => {
           />
 
           <div className="SurnameText">
-            <p><b>Surname:</b></p>
+            <p>
+              <b>Surname:</b>
+            </p>
           </div>
           <input
             className="SurnameInput"
@@ -204,7 +210,9 @@ const SignUp = () => {
           />
 
           <div className="emailText">
-            <p><b>Email:</b></p>
+            <p>
+              <b>Email:</b>
+            </p>
           </div>
           <input
             className="MailInput"
@@ -217,7 +225,9 @@ const SignUp = () => {
           />
 
           <div className="PasswordText">
-            <p><b>Password:</b></p>
+            <p>
+              <b>Password:</b>
+            </p>
           </div>
           <input
             className="PasswordInput"
@@ -230,7 +240,9 @@ const SignUp = () => {
           />
 
           <div className="rePasswordText">
-            <p><b>Re-Enter Password:</b></p>
+            <p>
+              <b>Re-Enter Password:</b>
+            </p>
           </div>
           <input
             className="rePasswordInput"
@@ -242,8 +254,13 @@ const SignUp = () => {
             required
           />
 
-          <button className="SignUpButton2" type="submit" id="SignUpButton2" disabled={isLoading}>
-            {isLoading ? 'Signing Up...' : 'Sign Up'}
+          <button
+            className="SignUpButton2"
+            type="submit"
+            id="SignUpButton2"
+            disabled={isLoading}
+          >
+            {isLoading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
       </div>
