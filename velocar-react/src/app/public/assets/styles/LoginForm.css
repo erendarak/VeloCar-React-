@@ -4,6 +4,7 @@
     align-items: center;
     min-height: 50vh;
     background-color: rgb(1, 131, 252);
+    border-radius: 10px;
   }
   .login-form{
 
