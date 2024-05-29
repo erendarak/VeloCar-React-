@@ -57,8 +57,9 @@ graph LR
  - **Ahmet Berkay Arslanpençe**: Sign up page and its functionalities which holds users in database server at port 3001, payment page and its functionalities which holds database server at port 3001
 
 ## Instructions
-
-By running commands in the project directory with following order:
+If you dont have the next on the project simply run this line:
+- npm install next -g
+By running commands in the project directory with following order will run the project on localhost:3000
 - npm install -g json-server
 - npx json-server --watch db.json --port 3001
 - npm run dev
