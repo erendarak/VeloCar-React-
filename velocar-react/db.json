@@ -121,16 +121,13 @@
       "imageUrl": "https://i.ibb.co/qjzXMWr/gt3rs.jpg"
     }
   ],
-  "users": [
-    {
-      "id": "dfe9",
-      "name": "ali",
-      "surname": "ilan",
-      "email": "ali@ozu.edu",
-      "password": "qwerty123"
-    }
-  ],
+  "users": [],
   "payments": [],
   "subscribers": [],
-  "currentUser": [{ "id": 1, "name": "notSignedIn" }]
+  "currentUser": [
+    {
+      "id": "1",
+      "name": "notSignedIn"
+    }
+  ]
 }
