@@ -191,6 +191,7 @@ const SignUp = () => {
             id="NameInput"
             value={formData.name}
             onChange={handleChange}
+            placeholder="Enter your name"
             required
           />
 
@@ -206,6 +207,7 @@ const SignUp = () => {
             id="SurnameInput"
             value={formData.surname}
             onChange={handleChange}
+            placeholder="Enter your surname"
             required
           />
 
@@ -221,6 +223,7 @@ const SignUp = () => {
             id="MailInput"
             value={formData.email}
             onChange={handleChange}
+            placeholder="example@gmail.com"
             required
           />
 
@@ -236,6 +239,7 @@ const SignUp = () => {
             id="PasswordInput"
             value={formData.password}
             onChange={handleChange}
+            placeholder="Enter your password"
             required
           />
 
@@ -251,6 +255,7 @@ const SignUp = () => {
             id="rePasswordInput"
             value={formData.rePassword}
             onChange={handleChange}
+            placeholder="Re-enter your password"
             required
           />
 

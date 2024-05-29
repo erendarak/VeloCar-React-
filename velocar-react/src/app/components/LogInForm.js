@@ -39,30 +39,6 @@ function LoginForm() {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const updateCurrentUser = async (currentUser) => {
-    try {
-      const response = await fetch(`http://localhost:3001/currentUser?id=1`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(currentUser),
-      });
-
-      if (!response.ok) {
-        const errorDetails = await response.text();
-        throw new Error(
-          `Failed to update currentUser: ${response.status} ${response.statusText} - ${errorDetails}`
-        );
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error("Error updating currentUser:", error);
-      throw error;
-    }
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     let email = storedData.find((item) => item.email === formData.email);
@@ -72,7 +48,6 @@ function LoginForm() {
 
     if (email && password) {
       alert("successfully login");
-      updateCurrentUser({ id: 1, name: "ali" });
       router.push("/");
     } else if (email) {
       alert("wrong password");

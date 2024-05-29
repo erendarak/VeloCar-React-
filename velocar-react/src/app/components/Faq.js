@@ -90,14 +90,14 @@ export default function Faq() {
                 <div className="grid-container background-color">
                     <div className="grid-image">
                         <div className="image-container">
-                            <h2 className="VeloCarLogo font">How it Works?</h2>
+                            <h2 className="VeloCarLogo2 font">How it Works?</h2>
                             <p className="font3">
                                 Buying with VeloCars is as easy as 1,2,3. Simply search for your car, pay online or use our finance or trade-in options, and then have the car delivered to one of our Customer Centers. We are the hassle-free, fast and secure way to buy yourself a used car, and we're by your side every step of the way.
                             </p>
                         </div>
                     </div>
                     <div className="grid-info">
-                        <h2 className="VeloCarLogo font">Wanna learn more about our business?</h2>
+                        <h2 className="VeloCarLogo2 font">Wanna learn more about our business?</h2>
                         <p className="font3">For contacting us, please:</p>
                         <form className="allign" onSubmit={handleSubmit}>
                             <label className="font2">Name</label>

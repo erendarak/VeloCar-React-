@@ -168,6 +168,7 @@ const Payment = () => {
                 name="cardName"
                 id="CNameInput"
                 value={paymentInfo.cardName}
+                placeholder="Enter the name on the card"
                 onChange={handleChange}
               />
             </div>
@@ -220,7 +221,7 @@ const Payment = () => {
               name="paymentSubmit"
               id="PaymentSubmitButton"
             >
-              Complete the Payment
+              Complete
             </button>
           </form>
         </div>
