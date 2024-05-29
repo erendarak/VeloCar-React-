@@ -6,7 +6,7 @@
       "year": "2013",
       "km": "225,000",
       "hp": "105",
-      "color": "White",
+      "color": "Gray",
       "gear": "Automatic",
       "fuelType": "Diesel",
       "price": "$25,000",
@@ -18,7 +18,7 @@
       "year": "2019",
       "km": "129,000",
       "hp": "75",
-      "color": "White",
+      "color": "Red",
       "gear": "Manual",
       "fuelType": "Diesel",
       "price": "$10,000",
@@ -30,7 +30,7 @@
       "year": "2019",
       "km": "67,765",
       "hp": "125",
-      "color": "Red",
+      "color": "White",
       "gear": "Automatic",
       "fuelType": "Gasoline",
       "price": "$15,000",
@@ -42,7 +42,7 @@
       "year": "2016",
       "km": "225,000",
       "hp": "218",
-      "color": "Black",
+      "color": "Gray",
       "gear": "Automatic",
       "fuelType": "Diesel",
       "price": "$40,000",
@@ -54,7 +54,7 @@
       "year": "2016",
       "km": "38,875",
       "hp": "510",
-      "color": "Yellow",
+      "color": "Gray",
       "gear": "Automatic",
       "fuelType": "Gaspline",
       "price": "$80,000",
@@ -78,7 +78,7 @@
       "year": "2023",
       "km": "6001",
       "hp": "601",
-      "color": "Green",
+      "color": "Yellow",
       "gear": "Automatic",
       "fuelType": "Gasoline",
       "price": "$100,000",
@@ -90,7 +90,7 @@
       "year": "2018",
       "km": "83,000",
       "hp": "120",
-      "color": "Red",
+      "color": "Gray",
       "gear": "Automatic",
       "fuelType": "Diesel",
       "price": "$25,000",
@@ -121,13 +121,40 @@
       "imageUrl": "https://i.ibb.co/qjzXMWr/gt3rs.jpg"
     }
   ],
-  "users": [],
-  "payments": [],
-  "subscribers": [],
-  "currentUser": [
+  "users": [
     {
-      "id": "1",
-      "name": "notSignedIn"
+      "id": "9dc2",
+      "name": "s",
+      "surname": "s",
+      "email": "a@s",
+      "password": "123456"
+    }
+  ],
+  "payments": [
+    {
+      "id": "d889",
+      "cardName": "eren",
+      "cardNumber": "1231111111111111",
+      "cvv": "112",
+      "expDate": "2024-06-06",
+      "paymentMethod": "Credit Card"
+    }
+  ],
+  "subscribers": [
+    {
+      "id": "ec90",
+      "name": "asd",
+      "email": "erendarak34@gmail.com"
+    },
+    {
+      "id": "4bda",
+      "name": "asd",
+      "email": "erndarak34@gmail.com"
+    },
+    {
+      "id": "fa2c",
+      "name": "q",
+      "email": "s@a"
     }
   ]
 }
