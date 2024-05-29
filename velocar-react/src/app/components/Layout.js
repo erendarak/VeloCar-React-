@@ -1,9 +1,36 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import "../public/assets/styles/carView.css";
 
 const Layout = ({ children }) => {
+  const [isSignedIn, setSignedIn] = useState(false);
+  const [currentUserLoaded, setCurrentUserLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!currentUserLoaded) {
+      loadCurrentUser();
+    }
+  }, [currentUserLoaded]);
+
+  const loadCurrentUser = () => {
+    fetch(`http://localhost:3001/currentUser`)
+      .then((response) => response.json())
+      .then((data) => {
+        let y = data[0];
+        if (y.name == "notSignedIn") {
+          setSignedIn(false);
+        } else {
+          setSignedIn(true);
+        }
+        setCurrentUserLoaded(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <div className="wrapper">
@@ -20,7 +47,10 @@ const Layout = ({ children }) => {
             <p className="UpperBarElements">
               <u>
                 <Link href="/pages/Login" legacyBehavior>
-                  <a>Sign In</a>
+                  <a>
+                    {isSignedIn && <>Sign Out</>}
+                    {!isSignedIn && <>Sign In</>}
+                  </a>
                 </Link>
               </u>
             </p>
