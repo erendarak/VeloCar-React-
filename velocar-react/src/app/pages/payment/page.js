@@ -1,35 +1,38 @@
-'use client';
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import '../../public/assets/styles/payment.css';
-import Layout from '../../components/Layout';
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import "../../public/assets/styles/payment.css";
+import Layout from "../../components/Layout";
 
 const Payment = () => {
   const router = useRouter();
 
   const [paymentInfo, setPaymentInfo] = useState({
-    cardName: '',
-    cardNumber: '',
-    cvv: '',
-    expDate: '',
-    paymentMethod: 'Credit Card'
+    cardName: "",
+    cardNumber: "",
+    cvv: "",
+    expDate: "",
+    paymentMethod: "Credit Card",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setPaymentInfo({
       ...paymentInfo,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleCardNumberInput = (e) => {
-    const sanitizedValue = e.target.value.replace(/\D/g, '').slice(0, 16);
-    setPaymentInfo((prevState) => ({ ...prevState, cardNumber: sanitizedValue }));
+    const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 16);
+    setPaymentInfo((prevState) => ({
+      ...prevState,
+      cardNumber: sanitizedValue,
+    }));
   };
 
   const handleCvvInput = (e) => {
-    const sanitizedValue = e.target.value.replace(/\D/g, '').slice(0, 3);
+    const sanitizedValue = e.target.value.replace(/\D/g, "").slice(0, 3);
     setPaymentInfo((prevState) => ({ ...prevState, cvv: sanitizedValue }));
   };
 
@@ -41,33 +44,33 @@ const Payment = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/payments', {
-        method: 'POST',
+      const response = await fetch("http://localhost:3001/payments", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(paymentInfo)
+        body: JSON.stringify(paymentInfo),
       });
 
       if (response.ok) {
-        alert('Payment completed succesfully!');
+        alert("Payment completed succesfully!");
         resetForm();
-        router.push('/'); 
+        router.push("/");
       } else {
         const errorData = await response.json();
-        console.error('Error response:', errorData);
-        alert('Payment Submission Failed');
+        console.error("Error response:", errorData);
+        alert("Payment Submission Failed");
       }
     } catch (error) {
-      console.error('Fetch error:', error);
-      alert('Payment Submission Failed');
+      console.error("Fetch error:", error);
+      alert("Payment Submission Failed");
     }
   };
 
   const validate = () => {
     const { cardName, cardNumber, cvv, expDate } = paymentInfo;
 
-    if (cardName === '' || cardNumber === '' || cvv === '' || expDate === '') {
+    if (cardName === "" || cardNumber === "" || cvv === "" || expDate === "") {
       alert("Please fill in all fields.");
       return false;
     }
@@ -102,8 +105,8 @@ const Payment = () => {
   };
 
   const validateIfInvalidName = (name) => {
-    if (name.trim() === '' || containsNumbers(name)) {
-      alert('Please enter a valid name without numbers.');
+    if (name.trim() === "" || containsNumbers(name)) {
+      alert("Please enter a valid name without numbers.");
       return false;
     }
     return true;
@@ -111,11 +114,11 @@ const Payment = () => {
 
   const resetForm = () => {
     setPaymentInfo({
-      cardName: '',
-      cardNumber: '',
-      cvv: '',
-      expDate: '',
-      paymentMethod: 'Credit Card'
+      cardName: "",
+      cardNumber: "",
+      cvv: "",
+      expDate: "",
+      paymentMethod: "Credit Card",
     });
   };
 
@@ -123,14 +126,17 @@ const Payment = () => {
     <Layout>
       <div className="PaymentPage">
         <div className="PaymentMethodBar">
-          <h1 className="choosePaymentText"><u>Choose Your Payment Method</u></h1>
+          <h1 className="choosePaymentText">
+            <u>Choose Your Payment Method</u>
+          </h1>
           <div className="radioButtonCard">
             <input
+              className="radioButton"
               type="radio"
               id="CreditCard"
               name="paymentMethod"
               value="Credit Card"
-              checked={paymentInfo.paymentMethod === 'Credit Card'}
+              checked={paymentInfo.paymentMethod === "Credit Card"}
               onChange={handleChange}
             />
             <label htmlFor="CreditCard">Credit Card</label>
@@ -138,11 +144,12 @@ const Payment = () => {
 
           <div className="radioButtonDebitCard">
             <input
+              className="radioButton"
               type="radio"
               id="Debit"
               name="paymentMethod"
               value="Debit Card"
-              checked={paymentInfo.paymentMethod === 'Debit Card'}
+              checked={paymentInfo.paymentMethod === "Debit Card"}
               onChange={handleChange}
             />
             <label htmlFor="Debit">Debit Card</label>
@@ -152,7 +159,9 @@ const Payment = () => {
         <div className="PaymentInfoBar">
           <form onSubmit={handleSubmit} id="PaymentForm">
             <div className="CardNameText">
-              <p><b>Name On the Card</b></p>
+              <p>
+                <b>Name On the Card</b>
+              </p>
               <input
                 className="CNameInput"
                 type="text"
@@ -164,7 +173,9 @@ const Payment = () => {
             </div>
 
             <div className="CardNum">
-              <p><b>Card Number</b></p>
+              <p>
+                <b>Card Number</b>
+              </p>
               <input
                 className="CNumInput"
                 type="text"
@@ -176,7 +187,9 @@ const Payment = () => {
             </div>
 
             <div className="CVV">
-              <p><b>CVV</b></p>
+              <p>
+                <b>CVV</b>
+              </p>
               <input
                 className="CVVInput"
                 type="text"
@@ -188,7 +201,9 @@ const Payment = () => {
             </div>
 
             <div className="ExpDate">
-              <p><b>Expiration Date</b></p>
+              <p>
+                <b>Expiration Date</b>
+              </p>
               <input
                 className="EXPDateInput"
                 type="date"
@@ -199,7 +214,14 @@ const Payment = () => {
               />
             </div>
 
-            <button className="PaymentSubmitButton" type="submit" name="paymentSubmit" id="PaymentSubmitButton">Complete the Payment</button>
+            <button
+              className="PaymentSubmitButton"
+              type="submit"
+              name="paymentSubmit"
+              id="PaymentSubmitButton"
+            >
+              Complete the Payment
+            </button>
           </form>
         </div>
       </div>

@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import ProductCard from "./ProductCard";
+import "../public/assets/styles/carView.css";
 
 function ProductList() {
   const [products, setCarList] = useState([]);
@@ -27,7 +28,7 @@ function ProductList() {
   };
 
   return (
-    <Container>
+    <Container className="Container">
       <Row>
         {products.map((product) => (
           <Col key={product.id} sm="12" lg="6">
